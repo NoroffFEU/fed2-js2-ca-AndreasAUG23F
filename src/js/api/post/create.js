@@ -1,1 +1,30 @@
-export async function createPost({ title, body, tags, media }) {}
+import { API_POST_CREATE } from "../../constants/api";
+import { headers } from "../../constants/headers";
+
+export async function createPost({ title, body, tags, media }) {
+  const body = {
+    title: title,
+    body: body,
+    tags: tags,
+    media: media,
+  };
+
+  try {
+    console.log("trying to create post");
+    const response = await fetch(API_POST_CREATE, {
+      method: "POST",
+      headers: headers(),
+      body: JSON.stringify(body),
+    });
+
+    if (response.ok) {
+      alert("Post created");
+      window.location.href = "/";
+      const data = await response.json();
+      console.log(data);
+    }
+  } catch (error) {
+    alert("An error occurred");
+    console.error(error);
+  }
+}
