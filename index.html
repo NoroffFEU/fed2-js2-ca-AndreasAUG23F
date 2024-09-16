@@ -1,22 +1,55 @@
-<!doctype html>
+<!-- <!DOCTYPE html>
+
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <script type="module" src="/src/app.js"></script>
+  </head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noroff FED2 JS2 CA</title>
-  <script type="module" src="/src/app.js"></script>
-</head>
+  <body>
+    <img src="/images/noroff-logo.png" alt="Noroff Logo" />
 
-<body>
-  <img src="/images/noroff-logo.png" alt="Noroff Logo" />
+    <h1>Home</h1>
 
-  <h1>Home</h1>
+    <div class="header"></div>
+    <a href="/profile/">My Profile</a>
+    <a href="/auth/login/">Login</a>
+    <a href="/auth/register/">Register</a>
+    <a href="post/create/">Create Post</a>
 
-  <a href="/profile/">My Profile</a>
-  <a href="/auth/login/">Login</a>
-  <a href="/auth/register/">Register</a>
-  <button>Logout</button>
-</body>
+    <button id="logoutButton">Logout</button>
+  </body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script defer type="module" src="/src/app.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="logo" />
+        <h1>Home</h1>
+      </header>
+
+      <nav class="nav-links">
+        <a href="/profile/">My Profile</a>
+        <a href="/auth/login/">Login</a>
+        <a href="/auth/register/">Register</a>
+        <a href="post/create/">Create Post</a>
+      </nav>
+
+      <button id="logoutButton" class="logout-button">Logout</button>
+    </div>
+  </body>
 </html>
