@@ -1,4 +1,4 @@
-import { createPost } from "../../api/post.js";
+import { createPost } from "../../api/post/create";
 
 export async function onCreatePost(event) {
   console.log("onCreatePost");
@@ -8,9 +8,9 @@ export async function onCreatePost(event) {
 
   const createPostData = {
     title: formData.get("title"),
-    body: formData.get("body"),
+    /* body: formData.get("body"),
     tags: formData.get("tags"),
-    media: formData.get("media"),
+    media: formData.get("media"), */
   };
 
   createPost(createPostData);

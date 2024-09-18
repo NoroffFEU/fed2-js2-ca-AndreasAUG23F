@@ -1,4 +1,4 @@
-import { API_KEY } from "./constants";
+import { accessToken, API_KEY } from "./constants";
 
 export function headers() {
   const headers = new Headers();
@@ -7,7 +7,11 @@ export function headers() {
     headers.append("X-Noroff-API-Key", API_KEY);
   }
 
-  headers.append("content-Type", "application/json");
+  if (accessToken) {
+    headers.append("Authorization", `Bearer ${accessToken}`);
+  }
+
+  headers.append("Content-Type", "application/json");
 
   return headers;
 }

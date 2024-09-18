@@ -1,6 +1,5 @@
 @import url(_reset.css);
 
-/* Reset og grunnstil */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +8,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #b5a4e3;
+  background-color: #6d3feb;
   color: #ffffff;
   display: flex;
   justify-content: center;
@@ -76,7 +75,7 @@ h1 {
 /* Logout-knappen */
 .logout-button {
   background-color: #ff1744;
-  color: white;
+  color: rgb(254, 253, 253);
   border: none;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -87,8 +86,8 @@ h1 {
 }
 
 .logout-button:hover {
-  background-color: #d50000;
-  box-shadow: 0px 0px 25px rgba(255, 23, 68, 0.9);
+  background-color: #2e2c2c;
+  box-shadow: 0px 0px 25px rgba(165, 80, 97, 0.9);
 }
 
 /* Mobilresponsiv design */

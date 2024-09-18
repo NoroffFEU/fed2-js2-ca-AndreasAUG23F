@@ -1,5 +1,5 @@
-import { API_POST_CREATE } from "../../constants/api";
-import { headers } from "../../constants/headers";
+import { API_SOCIAL_POSTS } from "../constants";
+import { headers } from "../headers";
 
 /* export async function createPost({ title, body, tags, media }) {
   const body = {
@@ -29,33 +29,32 @@ import { headers } from "../../constants/headers";
   }
 } */
 
-export async function createPost({ title, body, tags, media }) {
-  const body = {
+export async function createPost({ title /*body  tags, image, alt */ }) {
+  const blogBody = {
     title: title,
-    body: blogText,
+    /* body: body,
     tags: [tags],
     media: {
       url: image,
       alt: alt,
-    },
+    }, */
   };
 
-  console.log("request body", body);
+  console.log("request body", blogBody);
   try {
     const response = await fetch(API_SOCIAL_POSTS, {
       method: "POST",
       headers: headers(),
-      body: JSON.stringify(body),
+      body: JSON.stringify(blogBody),
     });
 
-    console.log("Request Payload", JSON.stringify(body, null, 2));
+    console.log("Request Payload", JSON.stringify(blogBody, null, 2));
     console.log("Response", response);
 
     if (response.ok) {
       const data = await response.json();
       console.log("Post created", data);
-    } else {
-      console.error("An error occurred", response, statusText);
+      return data;
     }
   } catch (error) {
     console.error("An error occurred", error);
