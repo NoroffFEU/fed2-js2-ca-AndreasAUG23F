@@ -2,18 +2,21 @@ import { authGuard } from "../../utilities/authGuard";
 import { getKey } from "../../api/auth/key";
 import { setLogoutListener } from "../../ui/global/logout";
 import { makePost } from "../../ui/post/makePost";
+import { readPosts } from "../../api/post/read";
 
 authGuard();
 setLogoutListener();
 
-getKey().then((key) => {
-  console.log(key);
-});
+const seePosts = async () => {
+  try {
+    const posts = await readPosts();
 
-const readPosts = async () => {
-  const posts = await readPosts();
+    const latestPosts = posts.length > 12 ? posts.slice(-12) : posts;
 
-  makePost(posts, "allPosts");
+    makePost(latestPosts, "outerContainer");
+  } catch (error) {
+    console.error("Feil ved henting av innlegg:", error);
+  }
 };
 
-readHomepagePosts();
+seePosts();

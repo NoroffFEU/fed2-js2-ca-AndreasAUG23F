@@ -10,7 +10,6 @@ export function headers() {
   if (accessToken) {
     headers.append("Authorization", `Bearer ${accessToken}`);
   }
-  console.log(accessToken);
 
   headers.append("Content-Type", "application/json");
 

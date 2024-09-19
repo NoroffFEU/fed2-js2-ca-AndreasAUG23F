@@ -19,15 +19,12 @@ export async function getKey(name) {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
+
       const apiKey = data.data.key;
-      console.log(apiKey);
     }
   } catch (error) {
     console.error(error);
   }
 }
-
-console.log("Hello");
 
 getKey().then(console.log);

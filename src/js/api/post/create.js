@@ -32,12 +32,12 @@ import { headers } from "../headers";
 export async function createPost({ title /*body  tags, image, alt */ }) {
   const blogBody = {
     title: title,
-    /* body: body,
+    body: body,
     tags: [tags],
     media: {
       url: image,
       alt: alt,
-    }, */
+    },
   };
 
   console.log("request body", blogBody);
