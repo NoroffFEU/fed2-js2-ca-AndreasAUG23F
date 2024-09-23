@@ -27,10 +27,20 @@ export const makePost = (userPosts, id) => {
     }
     image.className = "postImage";
 
+    const viewPostBtn = document.createElement("button");
+    viewPostBtn.innerText = "View Post";
+    viewPostBtn.className = "viewPostBtn";
+    viewPostBtn.addEventListener("click", async () => {
+      window.location.href = "/post/";
+      localStorage.setItem("postId", JSON.stringify(post.id));
+      console.log(post);
+    });
+
     container.appendChild(title);
     container.appendChild(content);
     container.appendChild(imageDiv);
     imageDiv.appendChild(image);
+    container.appendChild(viewPostBtn);
 
     outerContainer.appendChild(container);
   });
