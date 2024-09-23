@@ -5,7 +5,7 @@ alert("Single Post Page");
 const postId = JSON.parse(localStorage.getItem("postId"));
 
 export const showPost = async () => {
-  const outerContainer = document.getElementById(id);
+  const outerContainer = document.getElementById("outerContainer");
   const post = await readPost(postId);
   const container = document.createElement("div");
   container.className = "postContainer";
@@ -28,11 +28,11 @@ export const showPost = async () => {
   }
   image.className = "postImage";
 
-  outerContainer.appendChild(container);
   container.appendChild(title);
   container.appendChild(content);
   container.appendChild(imageDiv);
   imageDiv.appendChild(image);
+  outerContainer.appendChild(container);
 };
 
 showPost();

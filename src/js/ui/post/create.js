@@ -8,9 +8,9 @@ export async function onCreatePost(event) {
 
   const createPostData = {
     title: formData.get("title"),
-    /* body: formData.get("body"),
+    body: formData.get("body"),
     tags: formData.get("tags"),
-    media: formData.get("media"), */
+    media: formData.get("media"),
   };
 
   createPost(createPostData);
