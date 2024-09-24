@@ -20,6 +20,7 @@ export async function login({ email, password }) {
       window.location.href = "/";
       const data = await response.json();
       localStorage.setItem("token", JSON.stringify(data.data.accessToken));
+      localStorage.setItem("userData", JSON.stringify(data.data));
       console.log(data);
     }
   } catch (error) {

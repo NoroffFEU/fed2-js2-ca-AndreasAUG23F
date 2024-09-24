@@ -10,7 +10,7 @@ export async function onCreatePost(event) {
     title: formData.get("title"),
     body: formData.get("body"),
     tags: formData.get("tags"),
-    media: formData.get("media"),
+    image: formData.get("media"),
   };
 
   createPost(createPostData);

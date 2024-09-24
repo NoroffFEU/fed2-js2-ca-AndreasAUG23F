@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +12,35 @@
 
     <form name="updateProfile">
       <button>Update Profile</button>
+
+      <button class="delete-button" data-post-id="1234">Delete</button>
     </form>
+  </body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <h1>Profile</h1>
+
+    <!-- Form for å oppdatere profil -->
+    <form name="updateProfile">
+      <button type="button" class="update-button">Update Profile</button>
+    </form>
+
+    <!-- Container for å vise brukerens innlegg -->
+    <div id="outerContainer" class="postsContainer">
+      <!-- Her vil innleggene som tilhører brukeren bli vist dynamisk av JavaScript -->
+    </div>
+
+    <!-- Container for innleggssletting, du kan koble event listeners i JS -->
+    <button class="delete-button" data-post-id="1234">Delete Post</button>
   </body>
 </html>
