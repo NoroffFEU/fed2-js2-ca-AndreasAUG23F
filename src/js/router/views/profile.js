@@ -1,51 +1,22 @@
 import { authGuard } from "../../utilities/authGuard";
 import { readPostsByUser } from "../../api/post/read";
-import { accessToken } from "../../api/constants";
+import { getKey } from "../../api/auth/key";
 
 // Sørg for at brukeren er logget inn
 authGuard();
 
-// Funksjon for å dekode JWT token og hente brukernavn
-function parseJwt(token) {
-  try {
-    const base64Url = token.split(".")[1]; // JWT formatet er delt med "."
-    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    const jsonPayload = decodeURIComponent(
-      atob(base64)
-        .split("")
-        .map(function (c) {
-          return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join("")
-    );
-
-    return JSON.parse(jsonPayload);
-  } catch (error) {
-    console.error("Error parsing token:", error);
-    return null;
-  }
-}
-
-// Dekod tokenen for å få brukerinformasjon
-const decodedToken = parseJwt(accessToken);
-
-// Hent brukernavn fra tokenen (for eksempel 'andreasab')
-const username = decodedToken?.name;
+// Hent brukernavn fra localStorage
+const userData = JSON.parse(localStorage.getItem("userData"));
+const username = userData.name; // Forutsetter at brukernavnet ligger her, og ikke i `data`
 
 // Funksjon for å vise innleggene til den innloggede brukeren
 export const showUserPosts = async () => {
   const outerContainer = document.getElementById("outerContainer");
 
-  // Sjekk om brukernavnet er tilgjengelig
-  if (!username) {
-    outerContainer.innerHTML =
-      "<p>Error: Could not determine username from token.</p>";
-    return;
-  }
-
   // Hent innleggene skrevet av denne brukeren
-  const posts = await readPostsByUser(username);
-
+  const data = await readPostsByUser(username);
+  const posts = data.posts;
+  console.log("Posts", posts);
   // Rens ut tidligere innhold i containeren
   outerContainer.innerHTML = ""; // Fjerner eventuell eksisterende tekst eller innlegg
 

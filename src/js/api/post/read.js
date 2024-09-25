@@ -1,4 +1,4 @@
-import { API_SOCIAL_POSTS } from "../constants";
+import { API_SOCIAL_POSTS, API_SOCIAL_PROFILES } from "../constants";
 import { headers } from "../headers";
 
 export async function readPost(id) {
@@ -60,10 +60,13 @@ export async function readPosts(limit = 12, page = 1, tag) {
 
 export async function readPostsByUser(username, limit = 12, page = 1, tag) {
   try {
-    const response = await fetch(API_SOCIAL_POSTS + `?username=${username}`, {
-      method: "GET",
-      headers: headers(),
-    });
+    const response = await fetch(
+      API_SOCIAL_PROFILES + `/${username}?_posts=true`,
+      {
+        method: "GET",
+        headers: headers(),
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
