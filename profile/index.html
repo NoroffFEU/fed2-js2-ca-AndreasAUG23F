@@ -1,17 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
   <body>
-    <h1>Profile</h1>
+    <div class="container">
+      <header class="header">
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="logo" />
+        <h1>Profile</h1>
+      </header>
+
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/auth/login/">Login</a>
+        <a href="/auth/register/">Register</a>
+        <a href="/post/create/">Create Post</a>
+      </nav>
+
+      <button id="logoutButton" class="logout-button">Logout</button>
+    </div>
 
     <form name="updateProfile">
-      <button>Update Profile</button>
+      <button type="button" class="update-button" id="updateProfileBtn">
+        Update Profile
+      </button>
     </form>
+
+    <div id="outerContainer" class="postsContainer"></div>
   </body>
 </html>

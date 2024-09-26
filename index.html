@@ -1,22 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <script type="module" src="/src/app.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="logo" />
+        <h1>Home</h1>
+      </header>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noroff FED2 JS2 CA</title>
-  <script type="module" src="/src/app.js"></script>
-</head>
+      <nav class="nav-links">
+        <a href="/profile/">My Profile</a>
+        <a href="/auth/login/">Login</a>
+        <a href="/auth/register/">Register</a>
+        <a href="/post/create/">Create Post</a>
+      </nav>
 
-<body>
-  <img src="/images/noroff-logo.png" alt="Noroff Logo" />
+      <button id="logoutButton" class="logout-button">Logout</button>
+    </div>
 
-  <h1>Home</h1>
-
-  <a href="/profile/">My Profile</a>
-  <a href="/auth/login/">Login</a>
-  <a href="/auth/register/">Register</a>
-  <button>Logout</button>
-</body>
+    <div class="container">
+      <section class="posts">
+        <h2>Posts</h2>
+        <div id="outerContainer"></div>
+      </section>
+  </body>
 </html>
