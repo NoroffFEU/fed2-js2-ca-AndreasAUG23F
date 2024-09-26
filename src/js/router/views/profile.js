@@ -1,32 +1,27 @@
 import { authGuard } from "../../utilities/authGuard";
 import { readPostsByUser } from "../../api/post/read";
 import { getKey } from "../../api/auth/key";
+import { onUpdatePost } from "../../ui/post/update";
 
-// Sørg for at brukeren er logget inn
 authGuard();
 
-// Hent brukernavn fra localStorage
 const userData = JSON.parse(localStorage.getItem("userData"));
-const username = userData.name; // Forutsetter at brukernavnet ligger her, og ikke i `data`
+const username = userData.name;
 
-// Funksjon for å vise innleggene til den innloggede brukeren
 export const showUserPosts = async () => {
   const outerContainer = document.getElementById("outerContainer");
 
-  // Hent innleggene skrevet av denne brukeren
   const data = await readPostsByUser(username);
   const posts = data.posts;
   console.log("Posts", posts);
-  // Rens ut tidligere innhold i containeren
-  outerContainer.innerHTML = ""; // Fjerner eventuell eksisterende tekst eller innlegg
 
-  // Sjekk om det er noen innlegg, hvis ikke vis en melding
+  outerContainer.innerHTML = "";
+
   if (!posts.length) {
     outerContainer.innerHTML = "<p>No posts available for this user.</p>";
     return;
   }
 
-  // Loop gjennom innleggene og vis dem på siden
   posts.forEach((post) => {
     const container = document.createElement("div");
     container.className = "postContainer";
@@ -48,13 +43,21 @@ export const showUserPosts = async () => {
     }
     image.className = "postImage";
 
+    const editButton = document.createElement("button");
+    editButton.innerText = "Edit Post";
+
+    editButton.addEventListener("click", async () => {
+      window.location.href = "/post/edit/";
+      localStorage.setItem("post", JSON.stringify(posts.id));
+    });
+
     container.appendChild(title);
     container.appendChild(content);
     container.appendChild(imageDiv);
     imageDiv.appendChild(image);
+    container.appendChild(editButton);
     outerContainer.appendChild(container);
   });
 };
 
-// Kall funksjonen for å vise innleggene til brukeren
 showUserPosts();
