@@ -28,19 +28,28 @@
     <script type="module" src="/src/app.js"></script>
   </head>
   <body>
-    <h1>Profile</h1>
+    <div class="container">
+      <header class="header">
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="logo" />
+        <h1>Profile</h1>
+      </header>
 
-    <!-- Form for å oppdatere profil -->
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/auth/login/">Login</a>
+        <a href="/auth/register/">Register</a>
+        <a href="/post/create/">Create Post</a>
+      </nav>
+
+      <button id="logoutButton" class="logout-button">Logout</button>
+    </div>
+
     <form name="updateProfile">
       <button type="button" class="update-button">Update Profile</button>
     </form>
 
-    <!-- Container for å vise brukerens innlegg -->
-    <div id="outerContainer" class="postsContainer">
-      <!-- Her vil innleggene som tilhører brukeren bli vist dynamisk av JavaScript -->
-    </div>
+    <div id="outerContainer" class="postsContainer"></div>
 
-    <!-- Container for innleggssletting, du kan koble event listeners i JS -->
     <button class="delete-button" data-post-id="1234">Delete Post</button>
   </body>
 </html>
