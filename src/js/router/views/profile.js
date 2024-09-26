@@ -1,14 +1,25 @@
 import { authGuard } from "../../utilities/authGuard";
 import { readPostsByUser } from "../../api/post/read";
-import { getKey } from "../../api/auth/key";
-import { onUpdatePost } from "../../ui/post/update";
 import { onDeletePost } from "../../ui/post/delete";
+import { setLogoutListener } from "../../ui/global/logout";
 
+setLogoutListener();
 authGuard();
 
 const userData = JSON.parse(localStorage.getItem("userData"));
 const username = userData.name;
 
+/**
+ * Displays the user's posts on the profile page.
+ *
+ * This function fetches the user's posts from the API and displays them in the DOM.
+ * It creates a profile picture, banner, and username, and shows all posts
+ * in a container. If no posts are available, a message is displayed.
+ *
+ * @async
+ * @function showUserPosts
+ * @returns {Promise<void>} No return value.
+ */
 export const showUserPosts = async () => {
   const outerContainer = document.getElementById("outerContainer");
 
@@ -22,6 +33,29 @@ export const showUserPosts = async () => {
     outerContainer.innerHTML = "<p>No posts available for this user.</p>";
     return;
   }
+
+  const profileContainer = document.createElement("div");
+  profileContainer.className = "profileContainer";
+
+  const avatar = document.createElement("img");
+  avatar.src = userData.avatar.url;
+  avatar.alt = "User Avatar";
+  avatar.className = "avatar";
+
+  const banner = document.createElement("img");
+  banner.src = userData.banner.url;
+  banner.alt = "User Banner";
+  banner.className = "banner";
+
+  const usernameElement = document.createElement("h1");
+  usernameElement.innerText = username;
+  usernameElement.className = "username";
+
+  profileContainer.appendChild(banner);
+  profileContainer.appendChild(avatar);
+  profileContainer.appendChild(usernameElement);
+
+  outerContainer.appendChild(profileContainer);
 
   posts.forEach((post) => {
     const container = document.createElement("div");
@@ -64,6 +98,7 @@ export const showUserPosts = async () => {
     imageDiv.appendChild(image);
     container.appendChild(editButton);
     container.appendChild(deleteButton);
+
     outerContainer.appendChild(container);
   });
 };

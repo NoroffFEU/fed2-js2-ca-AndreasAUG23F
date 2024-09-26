@@ -1,6 +1,15 @@
 import { API_AUTH_LOGIN } from "../constants"; // Sett riktig API URL for login
 import { headers } from "../headers";
 
+/**
+ * Logs in a user with the provided email and password.
+ *
+ * @param {Object} credentials - The credentials for logging in.
+ * @param {string} credentials.email - The user's email address.
+ * @param {string} credentials.password - The user's password.
+ * @returns {Promise<void>} A promise that resolves when the login attempt is complete.
+ */
+
 export async function login({ email, password }) {
   const body = {
     email: email,

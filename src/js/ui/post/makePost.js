@@ -1,3 +1,14 @@
+/**
+ * Creates and displays posts in the specified container.
+ *
+ * This function takes an array of user posts and an ID for the container element.
+ * It creates HTML elements for each post and appends them to the outer container.
+ * If the container does not exist, an error is logged to the console.
+ *
+ * @param {Array} userPosts - An array of post objects to be displayed.
+ * @param {string} id - The ID of the HTML element where the posts will be appended.
+ */
+
 export const makePost = (userPosts, id) => {
   const outerContainer = document.getElementById(id);
 

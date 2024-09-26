@@ -1,24 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff FED2 JS2 CA</title>
-    <script type="module" src="/src/app.js"></script>
-  </head>
-  <body>
-    <h1>Profile</h1>
-
-    <form name="updateProfile">
-      <button>Update Profile</button>
-
-      <button class="delete-button" data-post-id="1234">Delete</button>
-    </form>
-  </body>
-</html>
- -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,11 +24,11 @@
     </div>
 
     <form name="updateProfile">
-      <button type="button" class="update-button">Update Profile</button>
+      <button type="button" class="update-button" id="updateProfileBtn">
+        Update Profile
+      </button>
     </form>
 
     <div id="outerContainer" class="postsContainer"></div>
-
-    <button class="delete-button" data-post-id="1234">Delete Post</button>
   </body>
 </html>

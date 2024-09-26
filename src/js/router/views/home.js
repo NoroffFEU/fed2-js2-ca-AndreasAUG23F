@@ -7,6 +7,11 @@ import { readPosts } from "../../api/post/read";
 authGuard();
 setLogoutListener();
 
+/**
+ * Fetches the latest posts and renders them on the page.
+ * It limits the number of displayed posts to the latest 12.
+ */
+
 const seePosts = async () => {
   try {
     const posts = await readPosts();

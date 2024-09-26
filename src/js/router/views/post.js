@@ -4,6 +4,12 @@ alert("Single Post Page");
 
 const postId = JSON.parse(localStorage.getItem("postId"));
 
+/**
+ * Fetches a single post by its ID and displays it in the UI.
+ * The post is rendered inside a container with the appropriate structure,
+ * including the title, content, and image if available.
+ */
+
 export const showPost = async () => {
   const outerContainer = document.getElementById("outerContainer");
   const post = await readPost(postId);
