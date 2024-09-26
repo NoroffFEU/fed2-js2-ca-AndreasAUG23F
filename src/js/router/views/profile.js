@@ -2,6 +2,7 @@ import { authGuard } from "../../utilities/authGuard";
 import { readPostsByUser } from "../../api/post/read";
 import { getKey } from "../../api/auth/key";
 import { onUpdatePost } from "../../ui/post/update";
+import { onDeletePost } from "../../ui/post/delete";
 
 authGuard();
 
@@ -47,15 +48,22 @@ export const showUserPosts = async () => {
     editButton.innerText = "Edit Post";
 
     editButton.addEventListener("click", async () => {
+      localStorage.removeItem("postId");
+      localStorage.setItem("postId", JSON.stringify(post.id));
       window.location.href = "/post/edit/";
-      localStorage.setItem("post", JSON.stringify(posts.id));
     });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete Post";
+    deleteButton.id = post.id;
+    deleteButton.addEventListener("click", onDeletePost);
 
     container.appendChild(title);
     container.appendChild(content);
     container.appendChild(imageDiv);
     imageDiv.appendChild(image);
     container.appendChild(editButton);
+    container.appendChild(deleteButton);
     outerContainer.appendChild(container);
   });
 };
