@@ -63,10 +63,11 @@ export const showUserPosts = async () => {
 
     const title = document.createElement("h2");
     title.innerText = post.title;
-    title.className = "postTitle";
+    title.className = "post-title";
 
     const content = document.createElement("p");
     content.innerText = post.body;
+    content.className = "post-content";
 
     const imageDiv = document.createElement("div");
     imageDiv.className = "imageDiv";
@@ -80,6 +81,7 @@ export const showUserPosts = async () => {
 
     const editButton = document.createElement("button");
     editButton.innerText = "Edit Post";
+    editButton.className = "btn-blue";
 
     editButton.addEventListener("click", async () => {
       localStorage.removeItem("postId");
@@ -90,6 +92,7 @@ export const showUserPosts = async () => {
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete Post";
     deleteButton.id = post.id;
+    deleteButton.className = "btn-red";
     deleteButton.addEventListener("click", onDeletePost);
 
     container.appendChild(title);

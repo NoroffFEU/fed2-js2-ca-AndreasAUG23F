@@ -6,35 +6,94 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <div class="container">
-      <header class="header">
-        <img src="/images/noroff-logo.png" alt="Noroff Logo" class="logo" />
-        <h1>Create Post</h1>
+  <body
+    class="bg-indigo-600 text-white flex flex-col items-center p-5 min-h-screen"
+  >
+    <div class="container w-full max-w-lg sm:max-w-3xl mx-auto">
+      <header class="header text-center mb-6">
+        <img
+          src="/images/noroff-logo.png"
+          alt="Noroff Logo"
+          class="logo mb-4 mx-auto w-24 sm:w-36"
+        />
+        <h1 class="text-3xl sm:text-5xl mb-4">Create Post</h1>
       </header>
 
-      <nav class="nav-links">
-        <a href="/profile/">My profile</a>
-        <a href="/auth/login/">Login</a>
-        <a href="/auth/register/">Register</a>
-        <a href="/post/create/">Create Post</a>
+      <nav
+        class="nav-links flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-6"
+      >
+        <a
+          href="/profile/"
+          class="text-sm sm:text-base text-white transition duration-300 ease-in-out hover:text-green-500"
+          >My Profile</a
+        >
+        <a
+          href="/auth/login/"
+          class="text-sm sm:text-base text-white transition duration-300 ease-in-out hover:text-green-500"
+          >Login</a
+        >
+        <a
+          href="/auth/register/"
+          class="text-sm sm:text-base text-white transition duration-300 ease-in-out hover:text-green-500"
+          >Register</a
+        >
+        <a
+          href="/post/create/"
+          class="text-sm sm:text-base text-white transition duration-300 ease-in-out hover:text-green-500"
+          >Create Post</a
+        >
       </nav>
     </div>
 
-    <form name="createPost">
-      <button>Create Post</button>
+    <form
+      name="createPost"
+      class="w-full max-w-lg sm:max-w-3xl mx-auto p-6 sm:p-8 bg-indigo-700 rounded-lg shadow-lg"
+    >
+      <button
+        type="submit"
+        class="w-full mb-4 p-2 sm:p-3 bg-green-500 text-white font-bold rounded-lg transition duration-300 ease-in-out hover:bg-green-600 text-sm sm:text-lg"
+      >
+        Create Post
+      </button>
 
-      <label for="title">Title</label>
-      <input type="text" name="title" required />
+      <label for="title" class="block text-base sm:text-lg font-medium mb-2"
+        >Title</label
+      >
+      <input
+        type="text"
+        name="title"
+        required
+        class="w-full p-2 mb-4 border border-transparent rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+      />
 
-      <label for="body">Content</label>
-      <textarea name="body" required></textarea>
+      <label for="body" class="block text-base sm:text-lg font-medium mb-2"
+        >Content</label
+      >
+      <textarea
+        name="body"
+        required
+        class="w-full p-2 mb-4 border border-transparent rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+      ></textarea>
 
-      <label for="tags">tags</label>
-      <input type="text" name="tags" required />
+      <label for="tags" class="block text-base sm:text-lg font-medium mb-2"
+        >Tags</label
+      >
+      <input
+        type="text"
+        name="tags"
+        required
+        class="w-full p-2 mb-4 border border-transparent rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+      />
 
-      <label for="media">image</label>
-      <input type="url" name="media" required />
+      <label for="media" class="block text-base sm:text-lg font-medium mb-2"
+        >Image URL</label
+      >
+      <input
+        type="url"
+        name="media"
+        required
+        class="w-full p-2 mb-4 border border-transparent rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm sm:text-base"
+      />
     </form>
   </body>
 </html>

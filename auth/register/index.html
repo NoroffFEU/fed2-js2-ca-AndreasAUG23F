@@ -1,19 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
+  <body
+    class="flex flex-col items-center justify-center min-h-screen bg-purple-600 text-white p-4"
+  >
+    <h1 class="text-3xl font-bold mb-6 text-center text-shadow">Register</h1>
 
-  <body>
-    <h1>Register</h1>
-
-    <form name="register">
-      <div>
-        <label for="name">Name</label>
+    <form
+      name="register"
+      class="w-full max-w-md bg-purple-700 p-8 rounded-lg shadow-lg"
+    >
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-medium mb-2">Name</label>
         <input
           id="name"
           type="text"
@@ -22,11 +29,12 @@
           maxlength="20"
           pattern="^[\w]+$"
           title="Please enter a username using only letters and numbers"
+          class="w-full p-2 border border-green-500 rounded focus:outline-none focus:ring focus:ring-green-500"
         />
       </div>
 
-      <div>
-        <label for="email">Email</label>
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium mb-2">Email</label>
         <input
           id="email"
           type="email"
@@ -34,22 +42,37 @@
           required
           pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
           title="Please enter a valid noroff.no or stud.noroff.no address"
+          class="w-full p-2 border border-green-500 rounded focus:outline-none focus:ring focus:ring-green-500"
         />
       </div>
 
-      <div>
-        <label for="password">Password</label>
+      <div class="mb-4">
+        <label for="password" class="block text-sm font-medium mb-2"
+          >Password</label
+        >
         <input
           type="password"
           name="password"
           id="password"
           required
           minlength="8"
+          class="w-full p-2 border border-green-500 rounded focus:outline-none focus:ring focus:ring-green-500"
         />
       </div>
 
-      <a href="/auth/login/">Login</a>
-      <button>Register</button>
+      <div class="flex justify-between items-center mb-4">
+        <a
+          href="/auth/login/"
+          class="text-sm text-green-300 hover:text-green-400"
+          >Login</a
+        >
+        <button
+          type="submit"
+          class="px-4 py-2 bg-green-500 hover:bg-green-600 rounded text-white font-bold transition duration-300"
+        >
+          Register
+        </button>
+      </div>
     </form>
   </body>
 </html>

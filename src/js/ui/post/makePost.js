@@ -23,10 +23,11 @@ export const makePost = (userPosts, id) => {
 
     const title = document.createElement("h2");
     title.innerText = post.title;
-    title.className = "postTitle";
+    title.className = "post-title";
 
     const content = document.createElement("p");
     content.innerText = post.body;
+    content.className = "post-content";
 
     const imageDiv = document.createElement("div");
     imageDiv.className = "imageDiv";
@@ -40,7 +41,7 @@ export const makePost = (userPosts, id) => {
 
     const viewPostBtn = document.createElement("button");
     viewPostBtn.innerText = "View Post";
-    viewPostBtn.className = "viewPostBtn";
+    viewPostBtn.className = "btn-green";
     viewPostBtn.addEventListener("click", async () => {
       window.location.href = "/post/";
       localStorage.setItem("postId", JSON.stringify(post.id));
